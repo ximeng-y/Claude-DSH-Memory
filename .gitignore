@@ -1,0 +1,10 @@
+node_modules/
+.XMTEMP/
+*.log
+*.tmp
+.env
+.env.*
+.DS_Store
+docs/DEVELOPMENT.md
+.idea/
+.vscode/

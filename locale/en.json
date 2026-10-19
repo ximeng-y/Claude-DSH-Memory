@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Claude Code Memory",
+    "description": "Shares Claude Code project memory (MEMORY.md + topic files) with this Harness session: baseline injection, claude_memory_* tools, write protection and optional background extraction."
+  }
+}

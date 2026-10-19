@@ -1,0 +1,35 @@
+Claude-DSH-Memory
+Copyright (c) 2026 ximeng
+
+本插件把 Claude Code 的项目记忆目录（`MEMORY.md` + 主题 Markdown 文件）复用到
+DeepSeek Harness（DSH）会话中。记忆格式、索引指针规则、revision 冲突检测、
+journal/backup/trash 设计以及后台提取的提示词结构，衍生于 Apache-2.0 许可的上游
+记忆实现；宿主适配层（Cordis 插件、`claude_memory_*` 工具、注入与写保护）为本项目重写。
+
+- 上游来源：ZCodex-Memory（Apache-2.0，https://github.com/ximeng-y/ZCodex-Memory）
+- 更上游：ZCode（https://github.com/zai-org/ZCode，Copyright 2026 Z.AI Co., Ltd.，Apache-2.0）
+
+本项目整体按 Apache License 2.0 分发，见 LICENSE。
+
+本项目的存储层语义（目录布局、frontmatter 最少改写、索引注入格式、revision 与
+原子写顺序）来自上游实现；其 NOTICE 中的下列声明原文保留：
+
+    ZCodex Memory
+    Copyright (c) 2026 ximeng
+
+    本项目是基于 ZCode 上游 Memory 机制进行移植、改写并适配 Codex 的兼容插件。
+    部分源文件属于对 ZCode 上游代码的翻译或改编；本项目整体采用 Apache-2.0 许可证。
+
+    This project is a Codex-compatible implementation derived in part from the ZCode project.
+    Some source files are translated, adapted, or rewritten from ZCode upstream code.
+    The project as a whole is distributed under the Apache License, Version 2.0.
+
+与上游的差异（本项目的判断，不属于上游行为）：
+
+- 不写入 `modified` 时间戳；新建 `MEMORY.md` 不写 `# Memory Index` 标题。
+- 使用 DSH 原生工具而不是 MCP；会话内直接写记忆目录会被工具守卫拒绝。
+- 允许按路径规则创建缺失的记忆目录，并在状态与注入中标记“未在 Claude Code 中核对”。
+- 后台提取在回合提交后异步执行，不阻塞回合；禁止删除操作。
+
+本项目与 Anthropic、OpenAI、DeepSeek 均无隶属关系；Claude Code 与 Claude 是
+Anthropic PBC 的商标，DeepSeek Harness 是 DeepSeek 的产品。

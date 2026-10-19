@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Claude Code 记忆",
+    "description": "与 Claude Code 共享项目记忆目录（MEMORY.md + 主题文件）：会话开始注入索引、提供 claude_memory_* 工具、禁止直接改文件，并可选做后台提取。"
+  }
+}

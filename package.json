@@ -1,0 +1,50 @@
+{
+  "name": "claude-dsh-memory",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "Reuse Claude Code project memory (MEMORY.md + topic files) from DeepSeek Harness sessions.",
+  "keywords": [
+    "claude-code",
+    "deepseek-harness",
+    "dsh",
+    "memory",
+    "cordis",
+    "plugin"
+  ],
+  "author": "ximeng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ximeng-y/Claude-DSH-Memory.git"
+  },
+  "homepage": "https://github.com/ximeng-y/Claude-DSH-Memory#readme",
+  "bugs": {
+    "url": "https://github.com/ximeng-y/Claude-DSH-Memory/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "src/**/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

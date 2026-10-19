@@ -1,0 +1,9 @@
+# Claude-DSH-Memory bundle patch.
+#
+# The single row below mounts the Host plugin. Its defaults are applied in code
+# (src/config.js), so an empty config is enough for a working installation; add
+# fields to override defaults.
+- insert:
+    - id: claude-dsh-memory
+      name: 'claude-dsh-memory'
+      config: {}
